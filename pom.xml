@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>SwingCommonDialogs</name>
+	<artifactId>SwingCommonDialogs</artifactId>
+	<description>Common Dialogs with Swing to speed up development.</description>
+	<url>${github.url}/${project.artifactId}/</url>
+	<inceptionYear>2014</inceptionYear>
+
+	<parent>
+		<artifactId>maven</artifactId>
+		<groupId>io.github.rampantlions</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<packaging>jar</packaging>
+
+	<properties>
+		<suiteXmlFile></suiteXmlFile>
+		<skipTests>true</skipTests>
+		<testFailureIgnore>true</testFailureIgnore>
+	</properties>
+
+	<dependencies></dependencies>
+
+	<scm>
+		<connection>scm:git:git@${github.server}:${github.user}/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@${github.server}:${github.user}/${project.artifactId}.git</developerConnection>
+		<url>${project.url}</url>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>${project.url}issues/</url>
+	</issueManagement>
+
+	<repositories>
+		<repository>
+			<id>sonatype</id>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>repo</id>
+			<name>${github.user} GitHub ${project.artifactId}</name>
+			<url>${github.ioserver.url}${project.artifactId}/releases</url>
+		</repository>
+		<repository>
+			<id>snapshot-repo</id>
+			<name>${github.user} GitHub ${project.artifactId} Snapshots</name>
+			<url>${github.ioserver.url}${project.artifactId}/releases</url>
+		</repository>
+	</repositories>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>${github.ioserver.pkg}.${github.ioserver.userOrOrg}.swing.commondialogs.login.LoginView</mainClass>
+							<classpathPrefix>dependency-jars/</classpathPrefix>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.5.1</version>
+				<!-- <execution> -->
+				<!-- <id>unpack</id> -->
+				<!-- <phase>process-test-classes</phase> -->
+				<!-- <goals> -->
+				<!-- <goal>unpack</goal> -->
+				<!-- </goals> -->
+				<!-- <configuration> -->
+				<!-- <artifactItems> -->
+				<!-- <artifactItem> -->
+				<!-- <groupId>de.mwx.test</groupId> -->
+				<!-- <artifactId>selenium-test-base</artifactId> -->
+				<!-- <version>0.1</version> -->
+				<!-- <overWrite>true</overWrite> -->
+				<!-- <outputDirectory> -->
+				<!-- ${project.build.directory}/test-classes -->
+				<!-- </outputDirectory> -->
+				<!-- </artifactItem> -->
+				<!-- </artifactItems> -->
+				<!-- </configuration> -->
+				<!-- </execution> -->
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/dependency-jars/
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<prerequisites>
+		<maven>2.2.0</maven>
+	</prerequisites>
+
+</project>
