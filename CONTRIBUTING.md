@@ -1,4 +1,4 @@
-# Contributing to Common Dialogs
+# Contributing to Swing Common Dialogs
 
 If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request (on a branch other than `master` ).
 
@@ -6,7 +6,7 @@ When submitting code, please make every effort to follow existing conventions an
 
 ## License
 
-By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.paypal.com/jwiechman/CommonDialogs/blob/master/LICENSE.md
+By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/RampantLions/SwingCommonDialogs/blob/master/LICENSE
 
 All files are released with the Apache 2.0 license.
 
@@ -14,7 +14,7 @@ If you are adding a new file it should have a header like this:
 
 ```
 /**
- * Copyright 2015 PayPal, Inc.
+ * Copyright 2015 RampantLions.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

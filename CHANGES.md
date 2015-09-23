@@ -1,4 +1,4 @@
-Common Dialogs
+Swing Common Dialogs
 ========
 
-### Version 0.0.3-SNAPSHOT ###
+### Version 0.0.1-SNAPSHOT ###
